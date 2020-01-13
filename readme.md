@@ -1,3 +1,5 @@
+# Linux pack
+
 ## How to install
 
 1. Open ~.bash_profile: Terminal >> `cd ~ && sudo nano .profile` 
