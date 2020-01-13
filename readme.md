@@ -1,4 +1,4 @@
-# Linux pack
+# Onethinx Core Linux dependencies pack
 
 ## How to install
 
