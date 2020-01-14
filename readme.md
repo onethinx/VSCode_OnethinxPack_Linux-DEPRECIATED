@@ -23,7 +23,7 @@
     - Tasks (actboy168)
   - Apply the OpenOCD USB rules by running `yourpath\VSCode_OnethinxPack_Linux/tools_2.0/linux/openocd/udev_rules/install_rules.sh`.
 ## 3. Install the Onethinx Dependencies Pack
-  - Put this pack on your local harddisk (eg: /Applications/VSCode_OnethinxPack_Windows).
+  - Unzip the pack archive to your local harddisk (eg: /Applications/VSCode_OnethinxPack_Windows).
   - Open ~.profile: Terminal >> `cd ~ && sudo nano .profile`
   - Add this to the end of the file (make sure you enter the correct path) and save:
     ```
