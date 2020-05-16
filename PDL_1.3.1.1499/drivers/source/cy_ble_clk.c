@@ -150,6 +150,12 @@ static cy_en_ble_eco_status_t Cy_BLE_HAL_MxdRadioEnableClocks(cy_en_ble_eco_freq
 #define CY_BLE_ECO_LDO_ENABLE_DELAY                          (64U)
 /** \endcond */
 
+// ONETHINX >> Fix for missing function when not enabling Sytem Clocks in Device Configurator
+__WEAK void cycfg_ClockStartupError(uint32_t error)
+{
+    (void)error; /* Suppress the compiler warning */
+    while(1);
+}
 
 /*******************************************************************************
 * Function Name: Cy_BLE_EcoConfigure

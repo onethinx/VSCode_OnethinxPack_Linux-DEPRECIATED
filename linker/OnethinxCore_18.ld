@@ -73,8 +73,8 @@ MEMORY
      * Note that 2128 bytes of RAM (at the end of the RAM section) are reserved for system use.
      * Using this memory region for other purposes will lead to unexpected behavior.
      */
-    ram               (rwx)   : ORIGIN = 0x08000000, LENGTH = 0x3F000		/* ROLF: 0x08008000...0x0803EFFF */
-    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0xE0000		/* ROLF: 0x10020000...0x100FFFFF */
+    ram               (rwx)   : ORIGIN = 0x08000000, LENGTH = 0x3F000		/* ROLF: 0x08000000...0x0803EFFF */
+    flash             (rx)    : ORIGIN = 0x10000000, LENGTH = 0xE0000		/* ROLF: 0x10000000...0x100DFFFF */
     
     /* This is a 32K flash region used for EEPROM emulation. This region can also be used as the general purpose flash.
      * You can assign sections to this memory region for only one of the cores.

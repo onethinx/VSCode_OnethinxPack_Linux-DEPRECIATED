@@ -273,14 +273,9 @@ cy_en_ble_eco_status_t Cy_BLE_EcoConfigure(cy_en_ble_eco_freq_t freq,
 void Cy_BLE_EcoReset(void);
 /** \} */
 
-
 // ONETHINX >> Fix for missing function when not enabling Sytem Clocks in Device Configurator
-#define CY_CFG_SYSCLK_ALTHF_ERROR 2 
-__WEAK void cycfg_ClockStartupError(uint32_t error)
-{
-    (void)error; /* Suppress the compiler warning */
-    while(1);
-}
+#define CY_CFG_SYSCLK_ALTHF_ERROR 2
+extern void cycfg_ClockStartupError(uint32_t error);
 
 /** \cond INTERNAL */
 cy_en_ble_eco_status_t Cy_BLE_EcoStart(const cy_stc_ble_eco_config_t *config);

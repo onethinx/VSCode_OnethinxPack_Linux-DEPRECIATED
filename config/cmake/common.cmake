@@ -5,7 +5,8 @@
 ######################################################################
 
 set(C_FLAGS_WARNINGS
-    "-Wall" 
+    "-Wall"
+    "-Wno-unused-function"
     #"-Werror-implicit-function-declaration"
     #"-Wfloat-equal"
     #"-Wno-type-limits"
@@ -55,6 +56,19 @@ IF(${CMAKE_BUILD_TYPE} MATCHES [dD][eE][bB][uU][gG])
         "-fsigned-char"
         "-fdata-sections"
         "-g3"
+    )
+ELSEIF(${CMAKE_BUILD_TYPE} MATCHES [rR][eE][lL][wW][iI][tT][hH][dD][eE][bB][iI][nN][fF][oO])
+  message("Release build with debug info.")
+    set(FLAGS_OPTIMIZATION
+        "-DDEBUG"
+        "-ffunction-sections"
+        "-ffat-lto-objects"
+        "-Os"
+        "-fno-exceptions"
+        "-fmessage-length=0"
+        "-fsigned-char"
+        "-fdata-sections"
+        "-g2"
     )
 ELSE()
     message("Release build.")
