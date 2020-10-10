@@ -27,8 +27,8 @@ if [[ "$OSTYPE" == *darwin* ]]; then
     export EXTRA_CFLAGS="$EXTRA_CFLAGS -L`pwd`/libusb-compat-install/lib/ -Qunused-arguments"
 else
     if [[ ! "$OSTYPE" == "msys2" ]]; then
-# These require linux/parport.h - hence do not work on OS-X
-export EXTRA_OPENOCD_CFGOPTS="$EXTRA_OPENOCD_CFGOPTS --enable-amtjtagaccel --enable-gw16012 --enable-parport "
+        # These require linux/parport.h - hence do not work on OS-X
+        export EXTRA_OPENOCD_CFGOPTS="$EXTRA_OPENOCD_CFGOPTS --enable-amtjtagaccel --enable-gw16012 --enable-parport "
     fi
     export EXTRA_CFLAGS="$EXTRA_CFLAGS -L`pwd`/libusb-win32-src-$LIBUSB_WIN32_VER/"
     export EXTRA_CFLAGS="$EXTRA_CFLAGS -Wl,-rpath,XORIGIN,--start-group "
@@ -36,8 +36,13 @@ fi
 
 export CC_VAL="gcc"
 
+if [ "$CONFIG" == "Coverage" ]; then
+    export EXTRA_CFLAGS="$EXTRA_CFLAGS --coverage -finstrument-functions-exclude-file-list=msys64,jimtcl,src/jtag,src/helper,src/pld,src/rtos,src/server,src/svf,src/target,src/transport,src/xsvf,src/flash/hand"
+    export EXTRA_OPENOCD_CFGOPTS="$EXTRA_OPENOCD_CFGOPTS --disable-werror"
+fi
+
 # Current branch
-CURRENT_BRANCH=icw/2.2
+CURRENT_BRANCH=icw/3.0
 
 # Get current branch from GitLab CI variable
 if [ ! -z ${CI_BUILD_REF_NAME+x} ];  then
