@@ -22,14 +22,17 @@
     - Open in Application (Fabio Spampinato)
     - Output Colorizer (IBM)
     - Tasks (actboy168)
-  - Apply the OpenOCD USB rules by running `yourpath\VSCode_OnethinxPack_Linux/tools_2.0/linux/openocd/udev_rules/install_rules.sh`.
+  - Apply the OpenOCD USB rules by running `yourpath/VSCode_OnethinxPack_Linux/tools_2.0/linux/openocd/udev_rules/install_rules.sh`.
 ## 3. Install the Onethinx Dependencies Pack
-  - Unzip the pack archive to your local harddisk (eg: /Applications/VSCode_OnethinxPack_Windows).
-  - Open ~.profile: Terminal >> `cd ~ && sudo nano .profile`
+  - Unzip the pack archive to your local harddisk (eg: /Applications/VSCode_OnethinxPack_Linux).<br>
+    _Hint: you might want to remove '-master' at the end of the folder name._
+  - Open ~.profile: Terminal >> `cd ~ && nano .profile`<br>
+     or when using Bash shell:<br>
+     open ~.bash_profile: Terminal >> `cd ~ && nano .bash_profile`
   - Add this to the end of the file (make sure you enter the correct path) and save:
     ```
     # Loading environment variables for the Onethinx Pack
-    source /locationOfYour/VSCode_OnethinxPack_macOS/variables.env
+    source /locationOfYour/VSCode_OnethinxPack_Linux/variables.env
     ```
   - Set the correct path in this pack's `variables.env` file.
   - Restart your machine (or log-out and log-in) to reload the environment variables.
@@ -38,6 +41,8 @@
     - `cmake -version`
     - `make -v`
     - `arm-none-eabi-gcc -v`
+  - If you have not done this yet, download the Hello World from https://ghithub.com/onethingx/VSCode_HelloWorld
+    - If this builds without error, the Onethinx build suite has been installed properly.
 ## 5. Remind
   - After changing the device configuration (or project file structure) to use
     - Clean Reconfigure
